@@ -5,7 +5,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'pwd'
-        sh 'cd /home/ubuntu/mytools'
+        sh 'cd /home/ubuntu/mytools/mytools'
         sh 'docker build -t my-tools .'
         sh 'docker tag my-tools $DOCKER_MYTOOLS_IMAGEURL'
       }
