@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytools
+  labels:
+    app: mytools
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mytools
+  template:
+    metadata:
+      labels:
+        app: mytools
+    spec:
+      containers:
+      - name: mytools
+        image: ashokbuttowski/my-tools
+        ports:
+        - containerPort: 80
