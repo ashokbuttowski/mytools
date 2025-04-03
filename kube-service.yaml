@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-tools-service
+spec:
+  selector:
+    app: my-tools
+  ports:
+    - protocol: TCP
+      port: 9095
+      targetport: 9095
+      nodeport: 9095
+type: Nodeport            
