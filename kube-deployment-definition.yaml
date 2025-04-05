@@ -19,3 +19,16 @@ spec:
         image: ashokbuttowski/my-tools
         ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mytools-clusterip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: mytools
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
