@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mytools-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: mytools.com  # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mytools-clusterip-service
+            port:
+              number: 80
+#
+#kubectl apply -f mytools-ingress.yaml
+#kubectl get ingress
+
+
+#You can check the status of your Ingress with:
+# kubectl describe ingress mytools-ingress
