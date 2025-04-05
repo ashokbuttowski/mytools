@@ -1,0 +1,26 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: my-tools-clusterip
+
+spec:
+
+  type: ClusterIP
+
+  selector:
+
+    app: my-tools
+
+  ports:
+
+    - port: 8080
+
+      targetPort: 80
+
+#port-forwarding command is: kubectl port-forward service/my-tools-clusterip 8080:9095
+#Replace 8080 with the port you want to use on your local machine.
+#Replace 9095 with the port defined in your service's ports section.
+#8080 is machine and 9095 is container port-forward
